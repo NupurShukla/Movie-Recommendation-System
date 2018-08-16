@@ -23,7 +23,7 @@ Time:  99.0616660118  seconds
 <h2>Task 2: </h2>
 The file testing small.csv (20256 records) is from ratings.csv in ml-latest-small, correspondingly the file testing 20m.csv (4054451 records) is a subset of ratings.csv in ml-20m. The goal is to predict the ratings of every userId and movieId combination in the test files. I have implemented 3 techniques for the same: Model based CF, User based CF and Item based CF, and compared their performance in terms of time and accuracy.
 
-<b>Model based CF</b>
+<b>Model based CF</b> <br/>
 >$SPARK_HOME/bin/spark-submit Nupur_Shukla_task2_ModelBasedCF.py `<Path of ratings.csv file>` `<Path of test.csv file>`
 
 Example: $SPARK_HOME/bin/spark-submit Nupur_Shukla_task2_ModelBasedCF.py "ml-latest-small/ratings.csv" "data/testing_small.csv"
@@ -39,7 +39,7 @@ Output:<br/>
 RMSE:  0.952740143837 <br/>
 Time:  14.6660470963  sec
 
-<b>User based CF</b>
+<b>User based CF</b> <br/>
 Used Pearson correlation similarity to compute weights and thus do the prediction using those.
 
 >$SPARK_HOME/bin/spark-submit Nupur_Shukla_task2_UserBasedCF.py `<Path of ratings.csv file>` `<Path of test.csv file>`
@@ -55,7 +55,7 @@ Output:
 RMSE:  0.952949861361 <br/>
 Time:   190.558803082  sec
 
-<b>Item based CF</b>
+<b>Item based CF</b> <br/>
 I have implemented item-based CF with LSH and without LSH in the same python file. Results of item-based CF with LSH have been written to output file “Nupur_Shukla_task2_ItemBasedCF.txt”
 Item based CF with LSH-
 On running LSH first, we get pairs of most similar movie items. This is the pre-computation step. I have used the pairs I got from LSH, and computed Pearson Correlation weights only between those pairs to make the prediction for the test data.
